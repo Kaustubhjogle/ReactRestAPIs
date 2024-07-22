@@ -29,51 +29,53 @@ const AddCourse = () => {
 
   return (
     <div className="m-4 p-4">
-      <form onSubmit={handleAddCourse}>
-        <div class="sm:col-span-4">
-          <label
-            for="id"
-            class="block text-sm font-medium leading-6 text-gray-900"
-          >
-            ID
-          </label>
-          <input
-            name="id"
-            type="number"
-            placeholder="Enter ID Number"
-            value={formData.id}
-            onChange={handleChange}
-          ></input>
-        </div>
-        <div class="sm:col-span-4">
-          <label
-            for="title"
-            class="block text-sm font-medium leading-6 text-gray-900"
-          >
-            Title
-          </label>
-          <input
-            name="title"
-            type="text"
-            placeholder="Enter Course Title"
-            value={formData.title}
-            onChange={handleChange}
-          ></input>
-        </div>
-        <div class="sm:col-span-4">
-          <label
-            for="description"
-            class="block text-sm font-medium leading-6 text-gray-900"
-          >
-            Description
-          </label>
-          <input
-            name="description"
-            type="text"
-            placeholder="Enter Course Description"
-            value={formData.description}
-            onChange={handleChange}
-          ></input>
+      <form onSubmit={handleAddCourse} className="p-4 border-2 border-black rounded-md shadow-md">
+        <div className="flex justify-center flex-col text-center items-center">
+          <div class="sm:col-span-4 flex w-[300px] justify-between my-2 ">
+            <label for="id" class="text-lg font-bold text-gray-900 m-2 w-full">
+              ID
+            </label>
+            <input
+              name="id"
+              type="number"
+              placeholder="Enter ID Number"
+              value={formData.id}
+              onChange={handleChange}
+              className="h-10 rounded-md"
+            ></input>
+          </div>
+          <div class="sm:col-span-4 flex w-[300px] justify-between my-2">
+            <label
+              for="title"
+              class="text-lg font-bold text-gray-900 m-2 w-full"
+            >
+              Title
+            </label>
+            <input
+              name="title"
+              type="text"
+              placeholder="Enter Course Title"
+              value={formData.title}
+              onChange={handleChange}
+              className="h-10 rounded-md"
+            ></input>
+          </div>
+          <div class="sm:col-span-4 flex w-[300px] justify-between my-2">
+            <label
+              for="description"
+              class="text-lg font-bold text-gray-900 m-2 w-full"
+            >
+              Description
+            </label>
+            <input
+              name="description"
+              type="text"
+              placeholder="Enter Course Description"
+              value={formData.description}
+              onChange={handleChange}
+              className="h-10 rounded-md"
+            ></input>
+          </div>
         </div>
         <div class="sm:col-span-4 m-2">
           <button

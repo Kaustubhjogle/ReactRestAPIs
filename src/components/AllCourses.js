@@ -4,6 +4,7 @@ import axios from "axios";
 
 function AllCourses() {
   const [courseList, setCourseList] = useState([]);
+  console.log(courseList.length);
 
   useEffect(() => {
     axios
@@ -16,6 +17,12 @@ function AllCourses() {
         console.log(error);
       });
   }, []);
+
+  if(courseList.length === 0 ){
+    return(
+      <h2 className="text-xl m-2 p-2">No Courses Found</h2>
+    )
+  }
 
   return (
     <div>

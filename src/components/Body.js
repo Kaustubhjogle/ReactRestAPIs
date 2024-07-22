@@ -2,6 +2,7 @@ import { Link, Route, Routes } from "react-router-dom";
 import AllCourses from "./AllCourses";
 import Home from "./Home";
 import AddCourse from "./AddCourse";
+import DeleteCourses from "./DeleteCourses";
 
 const Body = () => {
   return (
@@ -23,12 +24,18 @@ const Body = () => {
               Add Course
             </div>
           </Link>
+          <Link to={"/delete-courses"}>
+            <div className="border border-grey p-2 h-10 hover:font-bold">
+              Delete Course
+            </div>
+          </Link>
         </div>
         <div className="w-9/12 bg-gray-300">
           <Routes>
             <Route path="/" Component={Home} />
             <Route path="/all-courses" Component={AllCourses} />
             <Route path="/add-course" Component={AddCourse} />
+            <Route path="/delete-courses" Component={DeleteCourses} />
           </Routes>
         </div>
       </div>
