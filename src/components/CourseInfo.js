@@ -1,4 +1,5 @@
 import axios from "axios";
+import { toast } from "react-toastify";
 
 const CourseInfo = ({ courseData }) => {
   const { title, description, id } = courseData;
@@ -15,11 +16,9 @@ const CourseInfo = ({ courseData }) => {
 
 export const AdvancedCourseInfo = (CourseInfo) => {
   return (props) => {
-    const { title, description, id } = props.courseData;
+    const { id } = props.courseData;
 
     const handleDeleteCourse = (e) => {
-      console.log(id);
-      console.log(props);
       deleteCourse(id);
     };
 
@@ -27,7 +26,10 @@ export const AdvancedCourseInfo = (CourseInfo) => {
       axios
         .delete(`http://localhost:8080/courses/${id}`)
         .then((response) => {
-          console.log(response);
+          toast.success("Course Deleted Successfully", {
+            autoClose: 1500,
+            hideProgressBar: true,
+          });
         })
         .catch((error) => {
           console.log(error);

@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
+import { toast } from "react-toastify";
 
 const AddCourse = () => {
   const [formData, setFormData] = useState({
@@ -7,6 +8,14 @@ const AddCourse = () => {
     title: "",
     description: "",
   });
+ 
+  const resetForm = () => {
+    setFormData({
+      id: "",
+      title: "",
+      description: "",
+    });
+  }
 
   const handleChange = (event) => {
     setFormData({
@@ -17,19 +26,36 @@ const AddCourse = () => {
 
   const handleAddCourse = (e) => {
     e.preventDefault();
-    axios
-      .post("http://localhost:8080/courses", formData)
-      .then((response) => {
-        console.log(response);
-      })
-      .catch((error) => {
-        console.log(error);
+    const isAnyFieldEmpty = Object.values(formData).some(
+      (value) => value === ""
+    );
+    if (isAnyFieldEmpty) {
+      toast.error("Please fill out all fields.", {
+        autoClose: 1500,
+        hideProgressBar: true,
       });
+    } else {
+      axios
+        .post("http://localhost:8080/courses", formData)
+        .then((response) => {
+          resetForm()
+          toast.success("Course Added Successfully", {
+            autoClose: 1500,
+            hideProgressBar: true,
+          });
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
   };
 
   return (
     <div className="m-4 p-4">
-      <form onSubmit={handleAddCourse} className="p-4 border-2 border-black rounded-md shadow-md">
+      <form
+        onSubmit={handleAddCourse}
+        className="p-4 border-2 border-black rounded-md shadow-md"
+      >
         <div className="flex justify-center flex-col text-center items-center">
           <div class="sm:col-span-4 flex w-[300px] justify-between my-2 ">
             <label for="id" class="text-lg font-bold text-gray-900 m-2 w-full">

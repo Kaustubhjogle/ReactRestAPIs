@@ -4,7 +4,6 @@ import axios from "axios";
 
 function AllCourses() {
   const [courseList, setCourseList] = useState([]);
-  console.log(courseList.length);
 
   useEffect(() => {
     axios

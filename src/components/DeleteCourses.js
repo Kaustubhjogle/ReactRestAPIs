@@ -24,7 +24,6 @@ const DeleteCourses = () => {
   }
   return courseList.map((course) => {
     return <AdvancedCourse courseData={course} />;
-    // return <CourseInfo courseData={course} />;
   });
 };
 
