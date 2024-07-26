@@ -7,30 +7,30 @@ import DeleteCourses from "./DeleteCourses";
 const Body = () => {
   return (
     <div className="flex justify-center">
-      <div className="innercontainer w-4/6 my-2 rounded-lg shadow-md flex">
-        <div className="w-3/12 cursor-pointer">
+      <div className="innercontainer w-4/6 my-2 rounded-lg shadow-md shadow-gray-300 flex h-[36rem] overflow-hidden">
+        <div className="left-nav w-3/12 cursor-pointer">
           <Link to={"/"}>
-            <div className="border border-grey p-2 h-10 hover:font-bold">
+            <div className="border border-grey p-2 h-12 hover:font-bold flex items-center justify-center">
               Home
             </div>
           </Link>
           <Link to={"/all-courses"}>
-            <div className="border border-grey p-2 h-10 hover:font-bold">
+            <div className="border border-grey p-2 h-12 hover:font-bold flex items-center justify-center">
               All Courses
             </div>
           </Link>
           <Link to={"/add-course"}>
-            <div className="border border-grey p-2 h-10 hover:font-bold">
+            <div className="border border-grey p-2 h-12 hover:font-bold flex items-center justify-center">
               Add Course
             </div>
           </Link>
           <Link to={"/delete-courses"}>
-            <div className="border border-grey p-2 h-10 hover:font-bold">
+            <div className="border border-grey p-2 h-12 hover:font-bold flex items-center justify-center">
               Delete Course
             </div>
           </Link>
         </div>
-        <div className="w-9/12 bg-gray-300">
+        <div className="right-main-container w-9/12 bg-gray-300 scroll-auto overflow-auto">
           <Routes>
             <Route path="/" Component={Home} />
             <Route path="/all-courses" Component={AllCourses} />
