@@ -30,8 +30,10 @@ export const AdvancedCourseInfo = (CourseInfo) => {
             autoClose: 1500,
             hideProgressBar: true,
           });
+          window.location.reload()
         })
         .catch((error) => {
+          toast.error(error?.response?.data?.errorMessage);
           console.log(error);
         });
     };

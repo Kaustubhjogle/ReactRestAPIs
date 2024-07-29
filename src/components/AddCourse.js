@@ -45,6 +45,7 @@ const AddCourse = () => {
           });
         })
         .catch((error) => {
+          toast.error(error?.response?.data?.errorMessage);
           console.log(error);
         });
     }
